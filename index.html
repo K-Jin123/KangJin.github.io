@@ -48,6 +48,29 @@ nav ul li a:hover {
   color: #000000;
 }
 </style>
+
+  <script>
+// 페이지가 로드되면 실행
+document.addEventListener('DOMContentLoaded', function() {
+  loadSectionContent('section1', 'introduce.html');
+  loadSectionContent('section2', 'skill.html');
+  loadSectionContent('section3', 'portfolio.html');
+  loadSectionContent('section4', 'contact.html');
+});
+
+// 섹션 내용을 비동기적으로 로드하는 함수
+function loadSectionContent(sectionId, url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById(sectionId).innerHTML = html;
+    })
+    .catch(err => {
+      console.error('Failed to load section content', err);
+    });
+}
+</script>
+  
 </head>
 <body>
 
