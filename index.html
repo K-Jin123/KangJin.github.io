@@ -14,9 +14,51 @@
   scroll-snap-align: start;
   height: 100vh; /* 화면 높이에 맞춰서 설정 */
 }
+
+nav {
+  width: 100%;
+  height: 35px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #000;
+}
+
+nav ul li {
+  line-height: 35px;
+  text-align: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 20px;
+}
+
+nav ul li a:hover {
+  background-color: #666;
+  color: #ff42e7;
+}
 </style>
 </head>
 <body>
+
+<nav>
+  <ul>
+    <li><a href="#">INTRODUCE</a></li>
+    <li><a href="#">SKILL</a></li>
+    <li><a href="#">PORTFOLIO</a></li>
+    <li><a href="#">CONTACT</a></li>
+  </ul>
+</nav>
 
 <div class="scroll-container">
   <div class="section">Section 1</div>
