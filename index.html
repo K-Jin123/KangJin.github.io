@@ -48,39 +48,6 @@ nav ul li a:hover {
   color: #000000;
 }
 </style>
-
-  <script>
-// 페이지가 로드되면 실행
-document.addEventListener('DOMContentLoaded', function() {
-  loadSectionContent('section1', 'introduce.html');
-  loadSectionContent('section2', 'skill.html');
-  loadSectionContent('section3', 'portfolio.html');
-  loadSectionContent('section4', 'contact.html');
-});
-
-// 섹션 내용을 비동기적으로 로드하는 함수
-function loadSectionContent(sectionId, url) {
-  fetch(url)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById(sectionId).innerHTML = html;
-    })
-    .catch(err => {
-      console.error('Failed to load section content', err);
-    });
-}
-
-      // 메뉴 링크에 이벤트 리스너를 추가합니다.
-  document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault(); // 기본 이벤트를 막습니다.
-      const sectionId = e.target.getAttribute('href').substring(1); // href에서 '#'를 제거합니다.
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' }); // 해당 섹션으로 스크롤합니다.
-    });
-  });
-});
-
-</script>
   
 </head>
 <body>
@@ -101,6 +68,34 @@ function loadSectionContent(sectionId, url) {
   <div id="section4" class="section">Section 4</div>
   <!-- 더 많은 섹션들 -->
 </div>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  loadSectionContent('section1', 'https://K-Jin123.github.io/Utill/introduce.html');
+  // 다른 섹션의 콘텐츠 로드 로직 (필요하다면)
+  // ...
+
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const sectionId = e.target.getAttribute('href').substring(1);
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+});
+
+function loadSectionContent(sectionId, url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById(sectionId).innerHTML = html;
+      // 여기에 추가적인 스크립트 로직이 필요하다면 삽입합니다.
+    })
+    .catch(err => {
+      console.error('Failed to load section content', err);
+    });
+}
+</script>
 
 </body>
 </html>
