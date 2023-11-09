@@ -11,12 +11,16 @@
 </div>
 
 <style>
-/* Flex 컨테이너를 위한 스타일 */
 .introduce-wrapper {
   display: flex;
   align-items: center; /* 세로 중앙 정렬 */
-  justify-content: center; /* 가로 중앙 정렬 */
+  justify-content: flex-start; /* 가로 왼쪽 정렬 */
   margin-top: 50px; /* 상단 여백 */
+  width: 100%; /* 부모 컨테이너의 너비를 전체로 설정 */
+}
+
+.introduce-container, .introduce-container2 {
+  margin-right: 20px; /* 컨테이너 사이의 오른쪽 여백 */
 }
 
 /* 이미지 애니메이션을 위한 CSS */
