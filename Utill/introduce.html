@@ -11,9 +11,9 @@
 <style>
 /* CSS 애니메이션 */
 .resize-animation {
-  width: 500px; /* 이미지의 초기 크기를 설정하세요 */
+  width: 400px; /* 이미지의 초기 크기를 설정하세요 */
   height: auto;
-  animation: resizeImage 2s forwards; /* 애니메이션이 2초 동안 실행 */
+  animation: resizeImage 1.5s forwards; /* 애니메이션이 1.5초 동안 실행 */
 }
 
 @keyframes resizeImage {
@@ -30,6 +30,12 @@
 .introduce-container2 {
   visibility: hidden; /* 초기에는 보이지 않음 */
 }
+
+  #introduce-self {
+    position: relative;
+    top: 150px;
+    left: 400px;
+  }
 
   @keyframes appear {
     0% { opacity: 0; }
