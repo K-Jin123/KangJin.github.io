@@ -100,10 +100,14 @@
 function showSecondImage() {
   var container2 = document.querySelector('.introduce-container2');
   container2.style.display = 'flex'; // display를 flex로 설정
+  // 아래 코드를 추가하여 'appear' 애니메이션을 적용합니다.
+  container2.style.opacity = 0; // 초기 투명도를 설정하여 애니메이션이 보이게 합니다.
   container2.style.animation = 'appear 0.5s forwards';
-  container2.addEventListener('animationend', startTypingEffect);
+  container2.addEventListener('animationend', function() {
+    // 애니메이션이 끝나면 타이핑 텍스트 애니메이션을 시작합니다.
+    startTypingEffect();
+  });
 }
-
 // 타이핑 효과 함수
 function startTypingEffect() {
   // 타이핑 텍스트를 보이게 합니다.
