@@ -5,7 +5,7 @@
   </div>
 
   <div class="introduce-container2" style="display:none;">
-    <img id="introduce-self" src="image/introduce_self.jpg" alt="Introduce Self" class="resize-animation">
+    <img id="introduce-self" src="image/introduce_self.jpg" alt="Introduce Self" class="pop-animation">
     <h1 id="typing-text" style="visibility: hidden;">Hello, I'm a progressive developer KangJin Yu</h1>
   </div>
 </div>
@@ -30,11 +30,29 @@
   animation: resizeImage 1.5s forwards; /* 애니메이션이 1.5초 동안 실행 */
 }
 
+.pop-animation {
+  width: 400px;
+  height: auto;
+  animation: animate__fadeInRight 1.5s forwards;
+}
+
 @keyframes resizeImage {
   from { transform: scale(3); }
   to { transform: scale(1); }
 }
 
+@keyframes animate__fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+  
 /* 두 번째 이미지와 타이핑 텍스트의 애니메이션을 위한 CSS */
 .introduce-container2 {
   /* 애니메이션 준비를 위해 처음에는 보이지 않게 설정 */
