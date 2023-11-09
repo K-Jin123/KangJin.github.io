@@ -6,11 +6,20 @@
 
   <div class="introduce-container2" style="display:none;">
     <img id="introduce-self" src="image/introduce_self.jpg" alt="Introduce Self" class="resize-animation">
-      <h1 id="typing-text" style="visibility: hidden;">Hello, I'm a progressive developer KangJin Yu</h1>
+    <h1 id="typing-text" style="visibility: hidden;">Hello, I'm a progressive developer KangJin Yu</h1>
   </div>
 </div>
+
 <style>
-/* CSS 애니메이션 */
+/* Flex 컨테이너를 위한 스타일 */
+.introduce-wrapper {
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  margin-top: 50px; /* 상단 여백 */
+}
+
+/* 이미지 애니메이션을 위한 CSS */
 .resize-animation {
   width: 400px; /* 이미지의 초기 크기를 설정하세요 */
   height: auto;
@@ -22,27 +31,19 @@
   to { transform: scale(1); }
 }
 
-  #profile-pic {
-  position: relative; /* 혹은 absolute, fixed, sticky */
-  top: 150px; /* 위쪽으로부터의 거리 */
-  left: 150px; /* 왼쪽으로부터의 거리 */
-}
-
+/* 두 번째 이미지와 타이핑 텍스트의 애니메이션을 위한 CSS */
 .introduce-container2 {
-  visibility: hidden; /* 초기에는 보이지 않음 */
+  /* 애니메이션 준비를 위해 처음에는 보이지 않게 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-  #introduce-self {
-    position: relative;
-    top: 150px;
-    left: 400px;
-  }
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-  @keyframes appear {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  
 /* 타이핑 애니메이션에 대한 기본 스타일 */
 #typing-text {
   display: inline-block;
@@ -50,7 +51,6 @@
   overflow: hidden;
   border-right: 3px solid;
   animation: typing 3.5s steps(46, end), blink-caret .75s step-end infinite;
-  /* 여기서 3.5초는 전체 타이핑 애니메이션 시간이며, 글자수에 맞게 조절해야 합니다. */
 }
 
 /* 타이핑 애니메이션 키 프레임 */
@@ -70,7 +70,7 @@
 // 첫 번째 이미지 애니메이션이 끝난 후 두 번째 이미지를 표시하는 함수
 function showSecondImage() {
   var container2 = document.querySelector('.introduce-container2');
-  container2.style.display = 'block'; // visibility 대신 display를 사용
+  container2.style.display = 'flex'; // display를 flex로 설정
   container2.style.animation = 'appear 0.5s forwards';
   container2.addEventListener('animationend', startTypingEffect);
 }
