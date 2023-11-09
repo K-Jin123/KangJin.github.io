@@ -1,7 +1,11 @@
 <!-- introduce.html -->
 <div class="introduce-container">
   <img id="profile-pic" src="image/kangjin.jpg" alt="Profile Picture" class="resize-animation">
-  <h1 id="typing-text"></h1>
+</div>
+
+<div class="introduce-container2" style="display:none;">
+  <img id="introduce-self" src="image/introduce_self.jpg" alt="Introduce Self" class="resize-animation">
+    <h1 id="typing-text" style="visibility: hidden;">Hello, I'm a progressive developer KangJin Yu</h1>
 </div>
 
 <style>
@@ -23,6 +27,15 @@
   left: 150px; /* 왼쪽으로부터의 거리 */
 }
 
+.introduce-container2 {
+  visibility: hidden; /* 초기에는 보이지 않음 */
+}
+
+  @keyframes appear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
 /* 타이핑 애니메이션에 대한 기본 스타일 */
 #typing-text {
   display: inline-block;
@@ -47,29 +60,24 @@
 </style>
 
 <script>
-// 타이핑 효과를 위한 함수
-function typeWriter(text, i, callback) {
-  if (i < (text.length)) {
-    document.querySelector("#typing-text").innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
-
-    // 재귀적으로 다음 글자를 계속 타이핑합니다.
-    setTimeout(() => {
-      typeWriter(text, i + 1, callback)
-    }, 100);
-  } else if (callback && typeof callback == 'function') {
-    // 모든 글자가 타이핑되면 콜백 함수를 호출합니다.
-    setTimeout(callback, 700);
-  }
+// 첫 번째 이미지 애니메이션이 끝난 후 두 번째 이미지를 표시하는 함수
+function showSecondImage() {
+  var container2 = document.querySelector('.introduce-container2');
+  container2.style.display = 'block'; // visibility 대신 display를 사용
+  container2.style.animation = 'appear 0.5s forwards';
+  container2.addEventListener('animationend', startTypingEffect);
 }
 
-// 타이핑 효과를 시작하는 함수
+// 타이핑 효과 함수
 function startTypingEffect() {
-  const textToType = "Hello, I'm a progressive developer KangJin Yu";
-  typeWriter(textToType, 0, function() {
-    console.log("Typing animation completed!");
-  });
+  // 타이핑 텍스트를 보이게 합니다.
+  var typingText = document.getElementById('typing-text');
+  typingText.style.visibility = 'visible';
+  
+  // 타이핑 효과 시작
+  typeWriter(typingText.textContent || typingText.innerText, 0, function() {});
 }
 
-// 이미지 애니메이션이 끝나면 타이핑을 시작합니다.
-document.getElementById('profile-pic').addEventListener('animationend', startTypingEffect);
+// 첫 번째 이미지 애니메이션이 끝날 때 이벤트 리스너를 추가합니다.
+document.getElementById('profile-pic').addEventListener('animationend', showSecondImage);
 </script>
