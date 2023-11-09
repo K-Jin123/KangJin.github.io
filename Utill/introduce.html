@@ -1,6 +1,7 @@
 <!-- introduce.html -->
 <div class="introduce-container">
   <img id="profile-pic" src="image/kangjin.jpg" alt="Profile Picture" class="resize-animation">
+  <img id="introduce-self" src="image/introduce.jpg" alt="Introduce Self" class="pop-animation" style="display:none;">
   <h1 id="typing-text"></h1>
 </div>
 
@@ -10,6 +11,12 @@
   width: 150px; /* 이미지의 초기 크기를 설정하세요 */
   height: auto;
   animation: resizeImage 2s forwards; /* 애니메이션이 2초 동안 실행 */
+}
+
+.pop-animation {
+  width: 200px;
+  height: auto;
+  animation: animate__fadeInRight 2s forwards;
 }
 
 @keyframes resizeImage {
@@ -22,6 +29,12 @@
   top: 150px; /* 위쪽으로부터의 거리 */
   left: 150px; /* 왼쪽으로부터의 거리 */
 }
+
+  #introduce-self {
+    position: relative;
+    top: 100px;
+    left: 500px;
+  }
 
 /* 타이핑 애니메이션에 대한 기본 스타일 */
 #typing-text {
