@@ -7,7 +7,7 @@
 - 🧰TOOL: JAVA STUDIO, JAVA STUDIO CODE, ECLIPSE, ARDUINO IDE, ANDROID STUDIO, mySQL, MariaDB
 - 🌳ENVIORMENT: WINDOWS, LINUX, RASBERRY PI,
 - 📄ETC: Microsoft Office, Hancom Office
-### PROJECT
+## PROJECT
 - 🏦: 은행 입출금 관리 프로그램
 - 📜: DB를 활용한 회원관리 프로그램
 - 💡:아두이노 우노를 활용한 LED 제어 프로그램
