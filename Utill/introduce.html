@@ -87,4 +87,13 @@
 document.addEventListener("DOMContentLoaded", function() {
   var h1 = document.getElementById('typing-text'); // 타이핑 텍스트 요소
   var h2_1 = document.getElementById('h2-1'); // 첫 번째 숨김 요소
-  var h2_2 = document.getElementById('h2-2');
+  var h2_2 = document.getElementById('h2-2'); // 두 번째 숨김 요소
+
+  h1.addEventListener('animationend', function() {
+    h2_1.classList.remove('hidden'); // 애니메이션 종료 후 첫 번째 요소 표시
+    setTimeout(function() {
+      h2_2.classList.remove('hidden'); // 1초 후 두 번째 요소 표시
+    }, 1000); // 1초 지연
+  });
+});
+</script>
