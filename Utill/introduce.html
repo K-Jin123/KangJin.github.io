@@ -1,81 +1,90 @@
+<!-- 포트폴리오를 소개하는 섹션의 컨테이너 -->
 <div class="introduce-container">
+  <!-- 이미지와 텍스트를 포함하는 래퍼 -->
   <div class="content-wrapper">
+    <!-- 이미지를 담는 래퍼 -->
     <div class="images-wrapper">
+      <!-- 프로필 이미지 -->
       <img id="profile-pic" src="image/kangjin.jpg" alt="Profile Picture" class="resize-animation">
     </div>
+    <!-- 텍스트를 담는 래퍼 -->
     <div class="text-wrapper">
-      <h1 id="typing-text">안녕하세요, 개발자 유강진의 포트폴리오 입니다.\n</h1>
+      <!-- 메인 타이틀, 타이핑 애니메이션 효과가 적용됨 -->
+      <h1 id="typing-text">안녕하세요, 개발자 유강진의 포트폴리오 입니다.</h1>
+      <!-- 숨겨진 부분, 애니메이션이 끝난 후 표시될 내용 -->
       <h2 class="hidden" id="h2-1">아날로그(Analog)와 디지털(Digital)의 융합 디지로그(Digi-Log)를 가진 개발자</h2>
-      <h2 class="hidden" id="h2-2">포트폴리오를 확인해주셔서 감사합니다</h2>
+      <!-- 숨겨진 부분, 이전 요소가 표시된 후 1초 후에 표시될 내용 -->
+      <h2 class="hidden" id="h2-2">방문해주셔서 감사합니다.</h2>
     </div>
   </div>
 </div>
 
 <style>
+/* 컨테이너 기본 스타일 설정 */
 .introduce-container {
   position: relative;
-  height: 100vh;
+  height: 100vh; /* 전체 화면 높이 사용 */
 }
 
+/* 내부 요소를 중앙에 배치하는 래퍼 스타일 */
 .content-wrapper {
   display: flex;
   align-items: center;
-  flex-direction: row; /* 요소들을 가로로 나열 */
+  flex-direction: row; /* 가로 방향 배치 */
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
 }
 
+/* 이미지와 텍스트 사이의 간격 조정 */
 .images-wrapper {
-  margin-right: 20px; /* 이미지와 텍스트 사이 간격 조절 */
+  margin-right: 20px; /* 오른쪽 마진 설정 */
 }
 
+/* 프로필 이미지 스타일 */
 #profile-pic {
-  width: 300px;
-  height: auto;
-  border-radius: 50%;
+  width: 300px; /* 너비 설정 */
+  height: auto; /* 높이 자동 조절 */
+  border-radius: 50%; /* 원형 이미지 */
 }
 
+/* 텍스트 래퍼 스타일 */
 .text-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 세로 방향 배치 */
 }
 
+/* 타이핑 텍스트 애니메이션 효과 적용 */
 #typing-text {
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: .15em solid black;
-  width: 0;
-  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  white-space: nowrap; /* 텍스트 한 줄 표시 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  border-right: .15em solid black; /* 커서 효과 */
+  width: 0; /* 시작 너비 설정 */
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; /* 애니메이션 설정 */
 }
 
+/* 타이핑 효과 애니메이션 */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
+/* 커서 깜빡임 효과 애니메이션 */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: black }
 }
 
+/* 숨김 처리 스타일 */
 .hidden {
-  display: none;
+  display: none; /* 요소 숨김 */
 }
 </style>
 
 <script>
+/* 문서 로드 완료 후 스크립트 실행 */
 document.addEventListener("DOMContentLoaded", function() {
-  var h1 = document.getElementById('typing-text');
-  var h2_1 = document.getElementById('h2-1');
+  var h1 = document.getElementById('typing-text'); // 타이핑 텍스트 요소
+  var h2_1 = document.getElementById('h2-1'); // 첫 번째 숨김 요소
   var h2_2 = document.getElementById('h2-2');
-
-  h1.addEventListener('animationend', function() {
-    h2_1.classList.remove('hidden');
-    setTimeout(function() {
-      h2_2.classList.remove('hidden');
-    }, 1000); // 1초 후 h2-2 보이게 처리
-  });
-});
-</script>
