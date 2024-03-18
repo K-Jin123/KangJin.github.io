@@ -16,11 +16,12 @@
 }
 
 .content-wrapper {
-  display: flex; /* Flexbox를 사용하여 이미지와 텍스트를 나란히 배치 */
-  align-items: center; /* 세로 중앙 정렬 */
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* 요소들을 세로로 쌓도록 설정 */
   position: absolute;
-  top: 250px; /* 상단에서 250px 아래 */
-  left: 250px; /* 왼쪽에서 250px 오른쪽 */
+  top: 250px;
+  left: 250px;
 }
 
 #profile-pic {
