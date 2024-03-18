@@ -1,18 +1,18 @@
-<!-- introduce.html -->
 <div class="introduce-container">
-  <div class="content-wrapper"> <!-- 이미지와 텍스트를 나란히 배치하기 위한 div -->
+  <div class="content-wrapper">
     <div class="images-wrapper">
       <img id="profile-pic" src="image/kangjin.jpg" alt="Profile Picture" class="resize-animation">
     </div>
-    <h1 id="typing-text"> 안녕하세요, 개발자 유강진의 포트폴리오 입니다. </h1> <!-- 텍스트 입력 -->
-    <h2 class="hidden" id="h2-1"> 아날로그(Analog)와 디지털(Digital)의 융합 디지로그(Digi-Log)를 가진 개발자 </h2>
-    <h2 class="hidden" id="h2-2"> 포트폴리오를 확인해주셔서 감사합니다 </h2>
+    <h1 id="typing-text">안녕하세요, 개발자 유강진의 포트폴리오 입니다.</h1>
+    <h2 class="hidden" id="h2-1">아날로그(Analog)와 디지털(Digital)의 융합 디지로그(Digi-Log)를 가진 개발자</h2>
+    <h2 class="hidden" id="h2-2">포트폴리오를 확인해주셔서 감사합니다</h2>
   </div>
 </div>
 
 <style>
 .introduce-container {
   position: relative;
+  height: 100vh; /* 뷰포트 높이에 맞게 설정 */
 }
 
 .content-wrapper {
@@ -20,8 +20,9 @@
   align-items: center;
   flex-direction: column; /* 요소들을 세로로 쌓도록 설정 */
   position: absolute;
-  top: 250px;
-  left: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #profile-pic {
@@ -31,10 +32,10 @@
 }
 
 #typing-text {
-  margin-left: 40px; /* 이미지와 텍스트 사이 간격 */
   white-space: nowrap; /* 텍스트가 한 줄에 표시되도록 설정 */
   overflow: hidden; /* 넘치는 텍스트 숨기기 */
   border-right: .15em solid black; /* 커서 효과 */
+  width: 0; /* 시작 너비 설정 */
   animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; /* 타이핑 및 깜빡이는 효과 */
 }
 
@@ -62,9 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var h2_2 = document.getElementById('h2-2');
 
   h1.addEventListener('animationend', function() {
-    // h1이 타이핑 애니메이션 종료 후에 숨겨진 클래스를 제거하여 h2를 보이게 함
     h2_1.classList.remove('hidden');
-    // 1초 뒤에 다음 h2를 보이게 함
     setTimeout(function() {
       h2_2.classList.remove('hidden');
     }, 1000);
